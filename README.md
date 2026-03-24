@@ -5,7 +5,7 @@ Projeto desenvolvido para as disciplinas de Estrutura de Dados e Linguagem de Pr
 O objetivo é construir um sistema de gestão para a cantina da Atlética, gerenciando estoque, pagamentos e consumo.
 
 ## TODO List (Roadmap)
-- [ ] Implementar classes base de Estrutura de Dados.
+- [x] Implementar classes base de Estrutura de Dados.
 - [ ] **Estoque:** Cadastro de produtos perecíveis (lógica FIFO - prioridade para os mais velhos).
 - [ ] **Pagamentos:** Registro de transações via PIX (separando por Aluno/Servidor/Professor e curso IA/ESG).
 - [ ] **Vendas/Consumo:** Rotina para simular consumo, dar baixa no estoque e vincular ao pagamento.
