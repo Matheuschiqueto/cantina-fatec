@@ -7,11 +7,12 @@ class Fila:
         return len(self._itens) == 0
 
     def enfileirar(self, item):
-        """Coloca um novo item no final da fila"""
-        self._itens.append(item)
+        """Insere um item e reordena a fila pela data de vencimento (FEFO)."""
+        self._itens.append(item)        
+        self._itens.sort(key=lambda p: p.data_vencimento)
 
     def desenfileirar(self):
-        """Tira e retorna o item que está no início da fila (o mais velho)"""
+        """Tira e retorna o item que está no início da fila (o que vence primeiro)"""
         if self.esta_vazia():
             return None
         return self._itens.pop(0) 
