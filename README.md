@@ -6,7 +6,7 @@ O objetivo é construir um sistema de gestão para a cantina da Atlética, geren
 
 ## TODO List (Roadmap)
 - [x] Implementar classes base de Estrutura de Dados.
-- [ ] **Estoque:** Cadastro de produtos perecíveis (lógica FIFO - prioridade para os mais velhos).
+- [x] **Estoque:** Cadastro de produtos perecíveis (lógica FIFO/FEFO - prioridade para os mais velhos).
 - [ ] **Pagamentos:** Registro de transações via PIX (separando por Aluno/Servidor/Professor e curso IA/ESG).
 - [ ] **Vendas/Consumo:** Rotina para simular consumo, dar baixa no estoque e vincular ao pagamento.
 - [ ] **Relatórios:** Criar extração de vendas e consumo.
