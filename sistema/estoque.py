@@ -13,7 +13,7 @@ class Estoque:
             self.prateleiras[produto.nome] = Fila()
             
         self.prateleiras[produto.nome].enfileirar(produto)
-        print(f"Produto cadastrado: {produto.nome} (Lote com {produto.get_quantidade()} unidades)")
+        print(f"Lote cadastrado: {produto.nome} | Vence em: {produto.data_vencimento} | Qtd: {produto.get_quantidade()}")
 
     def vender_produto(self, nome_produto, quantidade_comprada):
         """
