@@ -1,6 +1,7 @@
 from sistema.estoque import Estoque
 from sistema.historico_pagamento import HistoricoPagamento
 from modelos.pagamento import Pagamento
+from sistema.relatorios import Relatorios
 
 class Cantina:
     """Classe principal que une o Estoque e os Pagamentos."""
@@ -23,7 +24,7 @@ class Cantina:
         sucesso_estoque = self.estoque.vender_produto(nome_produto, quantidade)
 
         if sucesso_estoque:
-            novo_pix = Pagamento(nome_cliente, categoria, curso, valor_total)
+            novo_pix = Pagamento(nome_cliente, categoria, curso, valor_total, nome_produto, quantidade)
             self.historico.registrar_pagamento(novo_pix)
             print("Venda concluída com sucesso!")
         else:
