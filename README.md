@@ -11,4 +11,4 @@ O objetivo é construir um sistema de gestão para a cantina da Atlética, geren
 - [x] **Vendas/Consumo:** Rotina para simular consumo, dar baixa no estoque e vincular ao pagamento.
 - [x] **Relatórios:** Criar extração de vendas e consumo.
 - [x] **Mock de Dados:** Gerar massa de testes com a lib `Faker`.
-- [ ] **Persistência:** Salvar e carregar o estado da aplicação usando `pickle`.
+- [x] **Persistência:** Salvar e carregar o estado da aplicação usando `pickle`.
