@@ -2,6 +2,8 @@ from sistema.estoque import Estoque
 from sistema.historico_pagamento import HistoricoPagamento
 from modelos.pagamento import Pagamento
 from sistema.relatorios import Relatorios
+import pickle
+import os
 
 class Cantina:
     """Classe principal que une o Estoque e os Pagamentos."""
@@ -29,3 +31,30 @@ class Cantina:
             print("Venda concluída com sucesso!")
         else:
             print("Venda cancelada: Quantidade insuficiente no lote atual.")
+
+    def salvar_dados(self):
+        """Salva o estado atual do estoque e histórico em um arquivo binário."""
+        try:
+            with open("dados_cantina.dat", "wb") as arquivo:
+                dados = {
+                    "estoque": self.estoque,
+                    "historico": self.historico
+                }
+                pickle.dump(dados, arquivo)
+            print("\n Dados salvos com sucesso!")
+        except Exception as e:
+            print(f"\n Erro ao salvar dados: {e}")
+
+    def carregar_dados(self):
+        """Tenta carregar os dados salvos anteriormente."""
+        if os.path.exists("dados_cantina.dat"):
+            try:
+                with open("dados_cantina.dat", "rb") as arquivo:
+                    dados = pickle.load(arquivo)
+                    self.estoque = dados["estoque"]
+                    self.historico = dados["historico"]
+                print("\n Dados carregados do arquivo 'dados_cantina.dat'.")
+                return True
+            except Exception as e:
+                print(f"\n Erro ao carregar arquivo: {e}")
+        return False
