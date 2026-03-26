@@ -58,3 +58,6 @@ class Cantina:
             except Exception as e:
                 print(f"\n Erro ao carregar arquivo: {e}")
         return False
+    
+    def adicionar_ao_estoque(self, produto):
+        self.estoque.cadastrar_produto(produto)

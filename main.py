@@ -1,7 +1,9 @@
 import os
+from datetime import date
 from sistema.cantina import Cantina
 from sistema.relatorios import Relatorios
 from utils.gerador_dados import popular_cantina
+from modelos.produto import Produto
 
 def limpar_tela():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -26,6 +28,7 @@ def menu():
         print("2. Realizar Venda Manual")
         print("3. Ver Relatorios e Consumo")
         print("4. Gerar dados de teste (Faker)")
+        print("5. Cadastrar Novo Lote/Produto")
         print("0. Sair e Salvar")
         
         opcao = input("\nEscolha uma opcao: ")
@@ -61,6 +64,23 @@ def menu():
             else:
                 print("Numero invalido.")
 
+        elif opcao == "5":
+            print("\n--- CADASTRO DE LOTE ---")
+            nome = input("Nome do Produto: ")
+            try:
+                p_custo = float(input("Preco de Custo: "))
+                p_venda = float(input("Preco de Venda: "))
+                vencimento = input("Data de Vencimento (AAAA-MM-DD): ")
+                quantidade = int(input("Quantidade do Lote: "))
+                
+                hoje = date.today().strftime("%Y-%m-%d")
+                
+                novo_lote = Produto(nome, p_custo, p_venda, hoje, vencimento, quantidade)
+                minha_cantina.adicionar_ao_estoque(novo_lote)
+                print(f"\nSucesso: Lote de {nome} adicionado ao estoque.")
+            except ValueError:
+                print("\nErro: Valores numericos invalidos.")
+
         elif opcao == "0":
             minha_cantina.salvar_dados()
             print("Encerrando sistema e salvando dados...")
@@ -68,7 +88,7 @@ def menu():
         else:
             print("Opcao invalida.")
 
-        if opcao in ["1", "2", "3", "4"]:
+        if opcao in ["1", "2", "3", "4", "5"]:
             input("\nPressione Enter para voltar ao menu...")
 
 if __name__ == "__main__":
